@@ -37,3 +37,6 @@ console.log(growingPlant(10,9,4))
 //     }
 //     return i;
 //   }
+
+let a = "a"
+console.log(a.charCodeAt(0))
