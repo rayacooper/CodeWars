@@ -14,17 +14,41 @@
 // Failed because "Maximum call stack size exceeded"
 // Probably ought to use a "while" loop
 
-var palindromeChainLength = function(n) {
-    let count = 0;
-    const doThing = () => {
-        if (n === Number(n.toString().split('').reverse().join(''))){
-            n += Number(n.toString().split('').reverse().join(''))
-            count++;
-        }else{
-            doThing();
-        }
+
+// var palindromeChainLength = function(n) {
+//     let count = 0;
+//     const doThing = () => {
+//         if (n === Number(n.toString().split('').reverse().join(''))){
+//             n += Number(n.toString().split('').reverse().join(''))
+//             count++;
+//         }else{
+//             doThing();
+//         }
+//     }
+//     doThing();
+//     return count;
+//   };
+
+
+  // Fount this solution, makes sense to me:
+
+  var palindromeChainLength = function(n) {
+
+    var reverseDigit = function(d)
+    {
+        return +d.toString().split('').reverse().join('');
     }
-    doThing();
-    return count;
-  };
+
+    var attempts = 0,
+        result = 0;
+        
+    while(n != reverseDigit(n))
+    {
+        attempts += 1;
+        n += reverseDigit(n);
+    }
+
+    return attempts;
+
+};
 
